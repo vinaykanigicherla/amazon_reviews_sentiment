@@ -42,4 +42,13 @@ Once I generated the embeddings, I attempted to apply classicaly ML models to th
 
 ### BERT Transfer Learning Approach
 
-In the final notebook, I created a neural network classifier and stacked it on top of the BERT encoder and trained it on the downsampled data. At first I simply added a single dense layer on top of the BERT encoder. However, during training, I realized that this model's validation accuracy stalled at around 40%. In order to improve the model, I added a two layer classifier instead and also made sure to add L2 weight regularization and dropout in order to combat overfitting. This approach achieved a 53% accuracy, differing from the SOTA benchmark for the Amazon Review Dataset by 12%.   
+In the final notebook, I created a neural network classifier and stacked it on top of the BERT encoder and trained it on the downsampled data. At first I simply added a single dense layer on top of the BERT encoder. However, during training, I realized that this model's validation accuracy stalled at around 40%. In order to improve the model, I added a two layer classifier instead and also made sure to add L2 weight regularization and dropout in order to combat overfitting. This approach achieved a 53% accuracy, differing from the SOTA benchmark for the Amazon Review Dataset by 12%.  
+
+## Explanation of Key Decisions
+- I chose to use the BERT model for transfer learning instead of ULM-FiT as my research indicated that BERT performed better for sentiment analysis tasks, especially when using the BERT Expert model
+- I chose not to apply any form of data augmentation to my data as I alreaady had a surplus of data which I could not use due to my computing power limitations  
+
+## Limitations and Improvements
+
+This approach has a number of limitations:
+- 
