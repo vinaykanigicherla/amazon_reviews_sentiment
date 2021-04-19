@@ -47,8 +47,17 @@ In the final notebook, I created a neural network classifier and stacked it on t
 ## Explanation of Key Decisions
 - I chose to use the BERT model for transfer learning instead of ULM-FiT as my research indicated that BERT performed better for sentiment analysis tasks, especially when using the BERT Expert model
 - I chose not to apply any form of data augmentation to my data as I alreaady had a surplus of data which I could not use due to my computing power limitations  
+- I chose to only train the weight of my classifier neural network and not the weights of BERT encoder itself (due to which there was no further finetuning of the encoder specific to this dataset) due to computational limitations  
+- I chose to make my classifier model only two layers deep as the addition of more layers would cause further overfitting (which I was already facing and combatting)
 
 ## Limitations and Improvements
 
 This approach has a number of limitations:
-- 
+- I was not able to use the entirety of the dataset, due to which my model's predictions may not generalize well to the entire dataset
+- I did not implement data augmentation on the dataset which could have further improved the model's generalizability and accuracy
+
+Possible improvements:
+- Training on the complete dataset and augmented data would improve performance (requires better computational resources)
+- Using AdamW (Adam with Weight Decay) optimizer instead of the regular Adam optimizers
+- Better weight initialization for classifier model
+- Training for more epochs with a larger batch size (requires better computational resources)
